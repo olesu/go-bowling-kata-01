@@ -76,7 +76,10 @@ func TestScore(t *testing.T) {
 		{shots: "1/------------------", expectedScore: 10},
 		{shots: "------------------1/X", expectedScore: 20},
 		{shots: "------------------XXX", expectedScore: 30},
-		{shots: "----------------1/8/", expectedScore: 28}, // TODO gir siste spare poeng?
+		{shots: "----------------1/8/-", expectedScore: 28},
+		{shots: "X--------------1/8/-", expectedScore: 38},
+		{shots: "X-------6------1/8/-", expectedScore: 44},
+		//{shots: "-1X1/--2/X5/32X2-", expectedScore: 103},
 	}
 	for _, td := range table {
 		t.Run(td.shots, func(t *testing.T) {
